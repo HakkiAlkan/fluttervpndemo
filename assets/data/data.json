@@ -1,0 +1,61 @@
+[
+  {
+    "id": 1,
+    "name": "Germany",
+    "flag": "assets/images/flags/de_flag.svg",
+    "locationCount": 3,
+    "serverList": [
+      {
+        "id": 1,
+        "name": "DE-1",
+        "city": "Berlin",
+        "strength": 24,
+        "countryId": 1
+      },
+      {
+        "id": 2,
+        "name": "DE-2",
+        "city": "Munich",
+        "strength": 78,
+        "countryId": 1
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Italy",
+    "flag": "assets/images/flags/it_flag.svg",
+    "locationCount": 3,
+    "serverList": [
+      {
+        "id": 1,
+        "name": "IT-1",
+        "city": "Rome",
+        "strength": 33,
+        "countryId": 2
+      },
+      {
+        "id": 2,
+        "name": "IT-2",
+        "city": "Milan",
+        "strength": 56,
+        "countryId": 2
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Netherlands",
+    "flag": "assets/images/flags/nl_flag.svg",
+    "locationCount": 4,
+    "serverList": [
+      {
+        "id": 1,
+        "name": "NL-1",
+        "city": "Amsterdam",
+        "strength": 11,
+        "countryId": 3
+      }
+    ]
+  }
+]
