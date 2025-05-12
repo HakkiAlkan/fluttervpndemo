@@ -31,6 +31,6 @@
 ## Kurulum
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/HakkiAlkan/fluttervpndemo.git
    flutter pub get
 flutter run
