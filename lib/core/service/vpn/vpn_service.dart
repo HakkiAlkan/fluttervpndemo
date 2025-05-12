@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:fluttervpndemo/core/enum/vpn_state.dart';
 import 'package:fluttervpndemo/core/model/connection_stats/connection_stats_model.dart';

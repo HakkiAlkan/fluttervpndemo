@@ -52,7 +52,7 @@ class NetworkApiService {
     try {
       Response response;
       bool connectivityResult = await getx.Get.find<AppService>().isRunApi();
-      if (true) {
+      if (connectivityResult) {
         if (headers != null && headers.isNotEmpty) {
           response = await _client.request(path, data: formData, options: Options(method: 'POST', headers: headers));
         } else {

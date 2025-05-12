@@ -6,7 +6,6 @@ import 'package:fluttervpndemo/core/controller/main/countries/countries_view_con
 import 'package:fluttervpndemo/core/enum/vpn_state.dart';
 import 'package:fluttervpndemo/core/model/country/country_model.dart';
 import 'package:fluttervpndemo/core/model/server/server_model.dart';
-import 'package:fluttervpndemo/core/repository/login/login_repository.dart';
 import 'package:fluttervpndemo/core/service/theme/theme_helper.dart';
 import 'package:fluttervpndemo/core/service/vpn/vpn_service.dart';
 import 'package:fluttervpndemo/generated/assets.dart';
@@ -23,39 +22,37 @@ class CountriesView extends BaseView<CountriesViewController> {
 
   @override
   Widget buildView(BuildContext context, CountriesViewController controller) {
-    return Scaffold(
-      body: Obx(
-        () => controller.isBusy.value
-            ? Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+    return Obx(
+      () => controller.isBusy.value
+          ? Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SpinKitRing(color: context.colorScheme.primary, size: 30.r),
+                12.verticalSpace,
+                Text(
+                  'Yükleniyor...',
+                  style: TextStyle(
+                    fontSize: FontSizeValue.normal,
+                    color: context.customColorScheme.txtDarkGrey,
+                  ),
+                ),
+              ],
+            )
+          : SingleChildScrollView(
+              padding: EdgeInsets.only(bottom: 0.1.sh),
+              physics: const BouncingScrollPhysics(),
+              child: Column(
                 children: [
-                  SpinKitRing(color: context.colorScheme.primary, size: 30.r),
-                  12.verticalSpace,
-                  Text(
-                    'Yükleniyor...',
-                    style: TextStyle(
-                      fontSize: FontSizeValue.normal,
-                      color: context.customColorScheme.txtDarkGrey,
-                    ),
+                  const _ConnectionInfoCard(),
+                  _LocationListWidget(
+                    title: 'Free Locations',
+                    dataList: controller.freeServerList,
+                    onSelectedVpn: (CountryModel val, ServerModel sw) async => await Get.find<VpnService>().startVpn(val, sw),
                   ),
                 ],
-              )
-            : SingleChildScrollView(
-                padding: EdgeInsets.only(bottom: 0.1.sh),
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    const _ConnectionInfoCard(),
-                    _LocationListWidget(
-                      title: 'Free Locations',
-                      dataList: controller.freeServerList,
-                      onSelectedVpn: (CountryModel val, ServerModel sw) async => await Get.find<VpnService>().startVpn(val, sw),
-                    ),
-                  ],
-                ),
               ),
-      ),
+            ),
     );
   }
 }
