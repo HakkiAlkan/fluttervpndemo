@@ -12,7 +12,7 @@
 ## Paketler
 
 ### *Flutter SDK*:
-- Flutter 3.5.4 veya daha yeni sürüm
+- Flutter 3.24.5 veya daha yeni sürüm
 - Dart SDK 3.5.4 veya daha yeni sürüm
 
 ### *GetX*:
